@@ -1,0 +1,118 @@
+.main {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background: #C69C52;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main .card {
+  position: relative;
+  background: #141311;
+  width: 60%;
+  min-width: 480px;
+  min-height: 500px;
+  max-height: 700px;
+  padding: 10px;
+}
+
+.card .cardMain {
+  width: 100%;
+  max-height: 600px;
+  border: solid 2px #474338;
+}
+.cardHeader{
+  padding: 10px 0;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(0.25turn,#141311, #2C2515, #141311);
+}
+
+.title {
+  position: relative;
+  margin: 0;
+  color: #C69C52 !important;
+  text-align: center;
+}
+
+.cardBody {
+  min-height: 420px;
+  width: 100%;
+}
+
+.panel {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.panel .panelButton {
+  color: #fff;
+  padding: 0px 20px;
+}
+
+.panel .panelButton:not(:last-child){
+  border-right: 2px solid #35302D;
+}
+
+.panelButton:hover {
+  cursor: pointer;
+}
+
+.panelButton.active {
+  color: #C69C52;
+}
+
+.charapter {
+  width: 100%;
+  min-height: 400px;
+}
+
+.charapter .charapterBody{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 340px;
+}
+
+.charapterBody .charapterLeft,
+.charapterBody .charapterRight {
+  padding: 20px;
+  width: 25%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  gap: 20px;
+}
+
+.charapterBody .charapterCenter {
+  width: 60%;
+  min-height: 300px;
+}
+
+.charapterButton{
+  width: 60px;
+  min-height: 60px;
+  background: white;
+}
+
+.mainImage {
+  padding: 10%;
+  width: 100%;
+  max-height: 500px;
+}
+
+@media only screen and (max-width:480px) {
+  .main .card {
+    min-width: 350px;
+  }
+}

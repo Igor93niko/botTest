@@ -1,0 +1,11 @@
+.main{
+  width: 100%;
+  min-height: 340px;
+}
+.param {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0 !important;
+  margin-left: 40px;
+  color: #C69C52;
+}
