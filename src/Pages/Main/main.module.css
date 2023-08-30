@@ -16,13 +16,13 @@
   width: 60%;
   min-width: 480px;
   min-height: 500px;
-  max-height: 700px;
+  /* max-height: 700px; */
   padding: 10px;
 }
 
 .card .cardMain {
   width: 100%;
-  max-height: 600px;
+  /* max-height: 600px; */
   border: solid 2px #474338;
 }
 .cardHeader{
