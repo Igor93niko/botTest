@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cl from './feature.module.css';
 import { Button, Typography } from 'antd';
 const dataSource = {
@@ -123,6 +123,11 @@ const Feature = () => {
   const [firstData, setFirstData] = useState(dataSource);
   const [countPoint, setCountPoint] = useState(10);
   const [firstPoint,setFirstPoint] = useState(10);
+
+  useEffect(()=>{
+    setFirstData(dataSource);
+    setFirstPoint(10);
+  },[]);
   const [fieldChange, setFieldChange] = useState({});
   const clickHandler = (item) => {
     const newData = {...data, [item]: data[item]+1};
@@ -132,7 +137,7 @@ const Feature = () => {
   };
   const clickMinusHandler = (item) => {
     const newData = {...data, [item]: data[item]-1};
-    if (firstData[item] == newData[item]) {
+    if (firstData[item] === newData[item]) {
       setFieldChange({...fieldChange, [item]: null});
     } 
     setCountPoint(countPoint+1);
@@ -152,7 +157,7 @@ const Feature = () => {
         {firstPoint!==countPoint&&<Button type='Link' className={cl.save}>Сохранить</Button>}
         {fields.player.map(item=>{
           return (<Typography.Paragraph key={item.value} className={cl.param}>
-            {item.text}: <span className={!!fieldChange[item.value]?cl.changeValue:''}>{data[item.value]}</span> {item.measure} {!!fieldChange[item.value]&&<span onClick={()=>{clickMinusHandler(item.value)}} style={{fontSize:'20px'}} className={cl.btnChange}>-</span>} {(countPoint!=0&&item.isChanges)&&<span onClick={()=>{clickHandler(item.value)}} style={{fontSize:'20px'}} className={cl.btnChange}>+</span>}</Typography.Paragraph>)
+            {item.text}: <span className={!!fieldChange[item.value]?cl.changeValue:''}>{data[item.value]}</span> {item.measure} {!!fieldChange[item.value]&&<span onClick={()=>{clickMinusHandler(item.value)}} style={{fontSize:'20px'}} className={cl.btnChange}>-</span>} {(countPoint!==0&&item.isChanges)&&<span onClick={()=>{clickHandler(item.value)}} style={{fontSize:'20px'}} className={cl.btnChange}>+</span>}</Typography.Paragraph>)
           }
           )
         }
