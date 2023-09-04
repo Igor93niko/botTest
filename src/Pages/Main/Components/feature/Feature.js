@@ -2,7 +2,6 @@ import React from 'react';
 import cl from './feature.module.css';
 import { Typography } from 'antd';
 const data = {
-  current: {
     name: 'Anton',
     race: 'Эльф',
     level: '1',
@@ -19,8 +18,10 @@ const data = {
     evasion: '0.0%',
     accuracy: '100%',
     criticalDamage: '10%',
-    criticalDamageChance: '2%'
-  }
+    criticalDamageChance: '2%',
+    activeSkills: ['Обычная атака - вы наносите простой удар оружием (урон 6-8).',
+'Двойной удар - вы наносите два удара подряд (урон 9-12). Откат умения 2 хода. Уровень умения: 1 (100.0% урона).'],
+    passiveSkills: ['Богач - с монстров падает на 10% больше золота. Уровень умения: 1 (+10.0% к получаемому золоту).']
 }
 
 const fields = {
@@ -95,22 +96,32 @@ const fields = {
       value: 'criticalDamageChance',
       text: 'Шанс критического урона',
     },
-  ]
+  ],
 }
 const Feature = () => {
   return (
     <div className={cl.main}>
       <Typography.Title level={4} style={{'textAlign':'center', 'color':'#C69C52'}}>Текущие характеристики персонажа:</Typography.Title>
       {fields.current.map(item=>{
-        return (<Typography.Paragraph key={item.value} className={cl.param}>{item.text}: {data.current[item.value]}</Typography.Paragraph>)
+        return (<Typography.Paragraph key={item.value} className={cl.param}>{item.text}: {data[item.value]}</Typography.Paragraph>)
         }
         )
       }
       <Typography.Title level={4} style={{'textAlign':'center', 'color':'#C69C52'}}>Характеристики игрока:</Typography.Title>
       {fields.player.map(item=>{
-        return (<Typography.Paragraph key={item.value} className={cl.param}>{item.text}: {data.current[item.value]}</Typography.Paragraph>)
+        return (<Typography.Paragraph key={item.value} className={cl.param}>{item.text}: {data[item.value]}</Typography.Paragraph>)
         }
         )
+      }
+      <Typography.Title level={4} style={{'textAlign':'center', 'color':'#C69C52'}}>Активные умения: </Typography.Title>
+      {data.activeSkills.map((item,index)=>{
+        return (<Typography.Paragraph key={index} className={cl.param}>{item}</Typography.Paragraph>)
+      })
+      }
+      <Typography.Title level={4} style={{'textAlign':'center', 'color':'#C69C52'}}>Пассивные умения: </Typography.Title>
+      {data.passiveSkills.map((item,index)=>{
+        return (<Typography.Paragraph key={index} className={cl.param}>{item}</Typography.Paragraph>)
+      })
       }
     </div>
   );

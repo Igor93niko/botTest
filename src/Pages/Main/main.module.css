@@ -2,7 +2,7 @@
   position: relative;
   padding: 20px 0;
   margin: 0;
-  background: #C69C52;
+  background: #ffffff;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -97,6 +97,8 @@
 .charapterBody .charapterCenter {
   width: 60%;
   min-height: 300px;
+  display: flex;
+  justify-content: center;
 }
 
 .charapterButton{
@@ -107,7 +109,6 @@
 
 .mainImage {
   padding: 10%;
-  width: 100%;
   max-height: 500px;
 }
 
