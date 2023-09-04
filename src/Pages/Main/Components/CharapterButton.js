@@ -29,6 +29,7 @@ const CharapterButton = (props) => {
           <img
             alt="example"
             src={images[0]}
+            onClick={()=>{setOpen(false); setImage(selected===1 ? null : images[0]); setSelected(selected===1?0:1)}}
           />
         }
         actions={ (selected===1) ? [
@@ -57,6 +58,7 @@ const CharapterButton = (props) => {
         <img
           alt="example"
           src={images[1]}
+          onClick={()=>{setOpen(false); setImage(selected===2 ? null : images[1]); setSelected(selected===2?0:2)}}
         />
       }
     >
@@ -74,7 +76,7 @@ const CharapterButton = (props) => {
       onOpenChange={handleOpenChange}
     >
       <div className={cl.charapterButton}>
-        {image!==null?<img src={image} style={{width:'100%'}} alt=''/>:<></>}
+        {image!==null?<img src={image} style={{maxWidth:'100%'}} alt=''/>:<></>}
       </div>
     </Popover>
   );

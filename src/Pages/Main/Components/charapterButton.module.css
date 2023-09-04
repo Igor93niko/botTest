@@ -4,5 +4,7 @@
   width: 60px;
   min-height: 60px;
   background: white;
+  display: flex;
+  justify-content: center;
 }
 
