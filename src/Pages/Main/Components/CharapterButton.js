@@ -19,11 +19,11 @@ const CharapterButton = (props) => {
     <Popover
       placement={props.position}
       content={
-        <Row gutter={[24,32]} justify="space-between"  style={{'maxHeight':'400px', 'overflowY': 'scroll'}}>
+        <Row gutter={[24,32]} justify="space-between"  style={{'maxHeight':'400px', 'maxWidth': '200px', 'overflowY': 'scroll'}}>
           <Col md={24}>
           <Card
         style={{
-          width: 300,
+          width: 180,
         }}
         cover={
           <img
@@ -44,7 +44,7 @@ const CharapterButton = (props) => {
       </Card>
       <Card
       style={{
-        width: 300,
+        width: 180,
       }}
       actions={selected===2 ? [
         <CheckCircleOutlined style={{ fontSize: '24px', color: 'green' }} key="ellipsis" onClick={()=>{setSelected(0); setOpen(false); setImage(null);}} />,
