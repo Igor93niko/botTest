@@ -6,6 +6,30 @@
   margin: 0;
   padding: 0;
   margin-bottom: 0 !important;
-  margin-left: 40px;
+  margin: 0 40px;
   color: #C69C52;
 }
+
+.changeValue{
+  color: #5ce05c;
+}
+ .btnChange:hover{
+  cursor: pointer;
+ }
+
+ .btnChange{
+  font-size: 30 !important;
+  font-weight: 800;
+ }
+
+ .charapter{
+  position: relative;
+ }
+
+
+ .save{
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  color: white;
+ }

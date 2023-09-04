@@ -19,7 +19,7 @@ const CharapterButton = (props) => {
     <Popover
       placement={props.position}
       content={
-        <Row gutter={[24,32]} justify="space-between"  style={{'maxHeight':'400px', 'maxWidth': '200px', 'overflowY': 'scroll'}}>
+        <Row gutter={[24,32]} justify="space-between"  style={{'maxHeight':'400px', 'maxWidth': '240px', 'overflowY': 'scroll'}}>
           <Col md={24}>
           <Card
         style={{

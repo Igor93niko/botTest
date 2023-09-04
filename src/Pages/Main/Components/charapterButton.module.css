@@ -3,7 +3,7 @@
 .charapterButton{
   width: 60px;
   min-height: 60px;
-  background: white;
+  background: rgb(163, 163, 163);
   display: flex;
   justify-content: center;
 }
