@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import cl from './main.module.css';
-import { Typography } from 'antd';
+import { Typography, notification } from 'antd';
 import Cloth from './Components/Cloth/Cloth';
 import Feature from './Components/feature/Feature';
+
+
 const panel = [
   {
     id: 'cloth',
@@ -18,12 +20,24 @@ const panel = [
 
 const Main = () => {
   const [active,setActive] = useState(panel[0]);
-
+  const [api, contextHolder] = notification.useNotification();
+  const openNotification = (placement) => {
+    api.error({
+      message: `${placement}`,
+      placement,
+    });
+  };
+  const [save, setSave] = useState(false);
   const clickHandler = (item) => {
-    setActive(item);
+    if (save) {
+      openNotification('Сохраните перед уходом');
+    } else {
+      setActive(item);
+    }
   }
   return (
     <div className={cl.main}>
+      {contextHolder}
       <div className={cl.card}>
         <div className={cl.cardMain}>
           <div className={cl.cardHeader}><Typography.Title level={2} className={cl.title} color='#C69C52'>Персонаж</Typography.Title></div>
@@ -37,7 +51,7 @@ const Main = () => {
             </div>
             <div className={cl.charapter}>
               {
-                <active.el/>
+                <active.el save={(value)=>{setSave(value)}}/>
               }
             </div>
           </div>

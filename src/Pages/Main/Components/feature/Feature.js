@@ -118,7 +118,7 @@ const fields = {
     },
   ],
 }
-const Feature = () => {
+const Feature = (props) => {
   const [data,setData] = useState(dataSource);
   const [firstData, setFirstData] = useState(dataSource);
   const [countPoint, setCountPoint] = useState(10);
@@ -135,6 +135,11 @@ const Feature = () => {
     setCountPoint(countPoint-1);
     setData(newData);
   };
+
+  useEffect(()=>{
+    props.save(countPoint!==firstPoint);
+  },[countPoint, firstPoint, props]);
+
   const clickMinusHandler = (item) => {
     const newData = {...data, [item]: data[item]-1};
     if (firstData[item] === newData[item]) {
@@ -154,13 +159,18 @@ const Feature = () => {
       }
       <div className={cl.charapter}>
         <Typography.Title level={4} style={{'textAlign':'center', 'color':'#C69C52'}}>Характеристики игрока:</Typography.Title>
-        {firstPoint!==countPoint&&<Button type='Link' className={cl.save}>Сохранить</Button>}
         {fields.player.map(item=>{
           return (<Typography.Paragraph key={item.value} className={cl.param}>
             {item.text}: <span className={!!fieldChange[item.value]?cl.changeValue:''}>{data[item.value]}</span> {item.measure} {!!fieldChange[item.value]&&<span onClick={()=>{clickMinusHandler(item.value)}} style={{fontSize:'20px'}} className={cl.btnChange}>-</span>} {(countPoint!==0&&item.isChanges)&&<span onClick={()=>{clickHandler(item.value)}} style={{fontSize:'20px'}} className={cl.btnChange}>+</span>}</Typography.Paragraph>)
           }
           )
         }
+        <div className={cl.panel}>
+          {firstPoint!==countPoint&&<Button type='Link' className={cl.save} onClick={()=>{setCountPoint(firstPoint)}}>Отмена</Button>}
+          {firstPoint!==countPoint&&<Button type='Link' className={cl.save} onClick={()=>{setCountPoint(firstPoint)}}>Сохранить</Button>}
+        </div>
+        
+
       </div>
       <Typography.Title level={4} style={{'textAlign':'center', 'color':'#C69C52'}}>Активные умения: </Typography.Title>
       {data.activeSkills.map((item,index)=>{

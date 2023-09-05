@@ -28,8 +28,12 @@
 
 
  .save{
-  position: absolute;
-  right: 10px;
-  top: 30px;
   color: white;
+ }
+
+ .panel{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 30px;
  }
